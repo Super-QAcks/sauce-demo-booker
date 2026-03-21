@@ -8,6 +8,7 @@ export class LoginPage extends PageFactory {
 	private readonly emailInput: Locator;
 	private readonly passwordInput: Locator;
 	private readonly loginButton: Locator;
+	private readonly errorMessage: Locator;
 
 	constructor(page: Page) {
 		super(page, URL_LOGIN);
@@ -15,6 +16,7 @@ export class LoginPage extends PageFactory {
 		this.emailInput = page.getByTestId("login-email");
 		this.passwordInput = page.getByTestId("login-password");
 		this.loginButton = page.getByTestId("login-button");
+		this.errorMessage = page.getByText("Your email or password is incorrect!");
 	}
 
 	async waitForRoot() {
@@ -25,5 +27,15 @@ export class LoginPage extends PageFactory {
 		await this.emailInput.fill(LOGIN_CREDENTIALS.STANDARD_USER);
 		await this.passwordInput.fill(LOGIN_CREDENTIALS.PASSWORD);
 		await this.loginButton.click();
+	}
+
+	async invalidLogin() {
+		await this.emailInput.fill(LOGIN_CREDENTIALS.INVALID_USER);
+		await this.passwordInput.fill(LOGIN_CREDENTIALS.INVALID_PASSWORD);
+		await this.loginButton.click();
+	}
+
+	async waitForErrorMessage() {
+		await this.errorMessage.waitFor({ state: "visible" });
 	}
 }
