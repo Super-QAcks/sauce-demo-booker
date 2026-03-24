@@ -26,4 +26,8 @@ export class LoginPage extends PageFactory {
 		await this.passwordInput.fill(LOGIN_CREDENTIALS.PASSWORD);
 		await this.loginButton.click();
 	}
+
+	async logout() {
+		await this.page.getByText(/logout/i).click({ force: true });
+	}
 }
