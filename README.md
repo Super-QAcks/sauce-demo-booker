@@ -1,1 +1,1 @@
-# ecommerce-playwright
+# sauce-demo-booker
