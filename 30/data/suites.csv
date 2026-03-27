@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","0","should submit the contact form successfully","chromium","Fri Mar 27 19:44:46 UTC 2026","skipped","Fri Mar 27 19:44:46 UTC 2026","Contact Us form tests","ui/tests/contactForm.spec.ts","",""
+"","2638","seed using loginPage fixture","chromium","Fri Mar 27 19:44:49 UTC 2026","passed","Fri Mar 27 19:44:51 UTC 2026","seed for logged in user","ui/tests/seed.spec.ts","",""
+"","579","Verify Test Cases page","chromium","Fri Mar 27 19:44:55 UTC 2026","passed","Fri Mar 27 19:44:55 UTC 2026","Login tests","ui/tests/testCases.spec.ts","",""
+"","2992","should log out successfully","chromium","Fri Mar 27 19:44:46 UTC 2026","passed","Fri Mar 27 19:44:49 UTC 2026","Login tests","ui/tests/loging.spec.ts","",""
+"","632","get started link","chromium","Fri Mar 27 19:44:45 UTC 2026","passed","Fri Mar 27 19:44:46 UTC 2026","","api/tests/example.spec.ts","",""
+"","481","has title","chromium","Fri Mar 27 19:44:43 UTC 2026","passed","Fri Mar 27 19:44:43 UTC 2026","","api/tests/example.spec.ts","",""
