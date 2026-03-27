@@ -1,14 +1,13 @@
 import { Page } from "@playwright/test";
 
 export class PageFactory {
-	constructor(
-		public readonly page: Page,
-		public url: string
-	) {
-		this.url = url;
+	protected page: Page;
+
+	constructor(page: Page) {
+		this.page = page;
 	}
 
-	async goto() {
-		await this.page.goto(this.url);
+	async goto(url: string) {
+		await this.page.goto(url, { waitUntil: "commit", timeout: 60000 });
 	}
 }

@@ -1,7 +1,6 @@
 import { Page, Locator } from "@playwright/test";
 import { PageFactory } from "./pageFactory";
 import { LOGIN_CREDENTIALS } from "../../pom/data/credentials";
-import { URL_LOGIN } from "../../pom/data/urls";
 
 export class LoginPage extends PageFactory {
 	public loginFormRoot: Locator;
@@ -10,7 +9,7 @@ export class LoginPage extends PageFactory {
 	private readonly loginButton: Locator;
 
 	constructor(page: Page) {
-		super(page, URL_LOGIN);
+		super(page);
 		this.loginFormRoot = page.locator(".login-form");
 		this.emailInput = page.getByTestId("login-email");
 		this.passwordInput = page.getByTestId("login-password");
