@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { ContactUsPage } from "../pom/pages/contactUs";
-import { HeaderComponent } from "../pom/components/header.component";
+import { HeaderComponent } from "../pom/component/header.component";
 import { URL_BASE } from "../pom/data/urls";
 
 test.describe("Contact Us form tests", () => {
