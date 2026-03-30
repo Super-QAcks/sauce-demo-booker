@@ -1,6 +1,5 @@
 import { Page, Locator } from "@playwright/test";
 import { PageFactory } from "./pageFactory";
-import { URL_CONTACT_US } from "../data/urls";
 import { ContactForm } from "../data/Interfaces";
 
 export class ContactUsPage extends PageFactory {
@@ -14,7 +13,7 @@ export class ContactUsPage extends PageFactory {
 	private readonly homeButton: Locator;
 
 	constructor(page: Page) {
-		super(page, URL_CONTACT_US);
+		super(page);
 		this.contactUsFormRoot = page.locator("#contact-page");
 		this.nameInput = page.getByTestId("name");
 		this.emailInput = page.getByTestId("email");
