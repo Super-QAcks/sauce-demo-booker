@@ -1,4 +1,4 @@
-import { URL_BASE } from "../pom/data/urls";
+import { URL_BASE } from "../data/urls";
 import { test } from "./helpers/loginFixture";
 import { TestCases } from "../pom/pages/testCasesPage";
 

@@ -8,3 +8,8 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 .env
+.github/agents
+.codex
+.github/workflows/copilot-setup-steps.yml
+.vscode
+specs/

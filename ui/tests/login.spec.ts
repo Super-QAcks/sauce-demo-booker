@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 import { test as LoginFixture } from "./helpers/loginFixture";
 import { LoginPage } from "../pom/pages/loginPage";
-import { URL_LOGIN } from "../pom/data/urls";
-import { LOGIN_CREDENTIALS } from "../pom/data/credentials";
+import { URL_LOGIN } from "../data/urls";
+import { LOGIN_CREDENTIALS } from "../data/credentials";
 
 LoginFixture.describe("Login Page Tests", () => {
 	LoginFixture("should log out successfully", async ({ loginPage }) => {

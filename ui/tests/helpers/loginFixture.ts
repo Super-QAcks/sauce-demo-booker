@@ -1,7 +1,7 @@
 import { test as base } from "@playwright/test";
-import { URL_BASE, URL_LOGIN } from "../../pom/data/urls";
+import { URL_BASE, URL_LOGIN } from "../../data/urls";
 import { LoginPage } from "../../pom/pages/loginPage";
-import { LOGIN_CREDENTIALS } from "../../pom/data/credentials";
+import { LOGIN_CREDENTIALS } from "../../data/credentials";
 
 export const test = base.extend<{ loginPage: LoginPage }>({
 	loginPage: async ({ page }, use) => {

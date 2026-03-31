@@ -1,6 +1,6 @@
 import { Page, Locator } from "@playwright/test";
 import { PageFactory } from "./pageFactory";
-import { ContactForm } from "../data/Interfaces";
+import { ContactForm } from "../../data/Interfaces";
 
 export class ContactUsPage extends PageFactory {
 	private readonly contactUsFormRoot: Locator;
