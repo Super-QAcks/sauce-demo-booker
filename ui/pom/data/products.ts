@@ -12,3 +12,15 @@ export const VALID_PRODUCTS = {
 		price: 50,
 	} as Product,
 };
+
+export const PRODUCT_DETAILS = {
+	default: {
+		name: "Blue Top",
+		quantity: 4,
+		price: 500,
+		category: "Women > Tops",
+		availability: "In Stock",
+		condition: "New",
+		brand: "Polo",
+	} as Product,
+};

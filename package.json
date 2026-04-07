@@ -5,9 +5,10 @@
 	"scripts": {
 		"tests": "npx playwright test --reporter=html",
 		"tests:ui": "npx playwright test --ui",
-		"test:debug": "npx playwright test --debug",
+		"tests:debug": "npx playwright test --debug",
 		"prettier": "prettier --check .",
 		"prettier:fix": "prettier --write .",
+		"flaky": "npx playwright test --reporter=html --repeat-each 100",
 		"lint": "eslint .",
 		"prepare": "husky"
 	},
