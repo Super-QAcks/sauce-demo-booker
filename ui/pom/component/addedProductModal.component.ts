@@ -18,7 +18,7 @@ export class AddedProductModal {
 	}
 
 	async waitForModal() {
-		await this.modalRoot.isVisible();
+		await this.modalRoot.waitFor({ state: "visible" });
 	}
 
 	async clickViewCart() {

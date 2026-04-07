@@ -5,8 +5,8 @@ export class ProductCard {
 	readonly productName: Locator;
 	readonly productPrice: Locator;
 	readonly addToCartButton: Locator;
+	readonly addtoCartOverlayButton: Locator;
 	readonly viewProductButton: Locator;
-	readonly productViewDetailsLink: Locator;
 
 	constructor(root: Locator) {
 		this.rootCard = root;
@@ -16,10 +16,11 @@ export class ProductCard {
 		this.viewProductButton = root.getByRole("link", {
 			name: /View Product/i,
 		});
+		this.addtoCartOverlayButton = root.locator(".productinfo .add-to-cart");
 	}
 
 	async addToCart() {
-		await this.addToCartButton.click();
+		await this.addtoCartOverlayButton.click();
 	}
 
 	async viewProduct() {

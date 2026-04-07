@@ -23,12 +23,11 @@ test.describe("E2E Tests", () => {
 			await homePage.goto(URL_BASE);
 		});
 
-		const productCard = await homePage.getProductbyName(product.name);
-
 		await test.step("Verify that home page is visible successfully", async () => {
 			await homePage.waitForRoot();
 		});
 
+		const productCard = await homePage.getProductbyName(product.name);
 		await test.step("Click 'View Product' for any product on home page", async () => {
 			await productCard.viewProduct();
 		});
@@ -50,11 +49,11 @@ test.describe("E2E Tests", () => {
 			await addedProductModal.clickViewCart();
 		});
 
+		const cartItem = await viewCartPage.getCartItemByName(
+			VALID_PRODUCTS.default.name
+		);
 		await test.step("Verify that product is displayed in cart page with exact quantity", async () => {
 			await viewCartPage.waitForCart();
-			const cartItem = await viewCartPage.getCartItemByName(
-				VALID_PRODUCTS.default.name
-			);
 			await expect(cartItem.productQuantity).toHaveText(
 				VALID_PRODUCTS.default.quantity.toString()
 			);

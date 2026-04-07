@@ -13,7 +13,7 @@ export class CartPage extends PageFactory {
 	}
 
 	async waitForCart() {
-		await this.cartRoot.isVisible();
+		await this.cartRoot.waitFor({ state: "visible" });
 	}
 
 	async getCartItemByName(name: string) {
