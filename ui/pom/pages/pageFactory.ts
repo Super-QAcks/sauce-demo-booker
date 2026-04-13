@@ -18,7 +18,7 @@ export class PageFactory {
 		await this.scrollUpButton.waitFor({ state: "hidden" });
 	}
 
-	async waitForRoot() {
+	async waitForScrollButton() {
 		await this.scrollUpButton.waitFor({ state: "visible" });
 	}
 }
