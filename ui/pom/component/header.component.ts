@@ -1,4 +1,5 @@
 import { Page, Locator } from "@playwright/test";
+import { URL_PRODUCTS } from "../data/urls";
 
 export class HeaderComponent {
 	readonly headerRoot: Locator;
@@ -8,8 +9,12 @@ export class HeaderComponent {
 	readonly logout: Locator;
 	readonly deleteAccount: Locator;
 	readonly loggedUserName: Locator;
+	readonly productsLink: Locator;
+	readonly testCasesLink: Locator;
+	readonly page: Page;
 
 	constructor(page: Page) {
+		this.page = page;
 		this.headerRoot = page.locator("#header");
 		this.contactUs = page.getByRole("link", { name: "Contact Us" });
 		this.logout = page.getByRole("link", { name: "Logout" });
@@ -17,6 +22,8 @@ export class HeaderComponent {
 		this.cart = page.getByRole("link", { name: "Cart" });
 		this.signUpLogin = page.getByRole("link", { name: "Signup / Login" });
 		this.loggedUserName = page.getByText("Logged in as").locator("b");
+		this.productsLink = page.getByRole("link", { name: /Products/i });
+		this.testCasesLink = page.getByRole("link", { name: " Test Cases" });
 	}
 
 	async waitForRoot() {
@@ -46,5 +53,17 @@ export class HeaderComponent {
 	async clickDeleteAccount() {
 		this.waitForRoot();
 		await this.deleteAccount.click();
+	}
+
+	async clickProductsLink() {
+		await this.productsLink.waitFor({ state: "visible", timeout: 10000 });
+		await this.productsLink.click({ force: true });
+		if (this.page.url().includes("#google_vignette")) {
+			await this.page.goto(URL_PRODUCTS);
+		}
+	}
+
+	async clickTestCasesLink() {
+		await this.testCasesLink.click({ force: true });
 	}
 }

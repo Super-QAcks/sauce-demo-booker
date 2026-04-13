@@ -10,6 +10,11 @@ export class ProductDetailsPage extends PageFactory {
 	readonly productQuantityInput: Locator;
 	readonly addToCartButton: Locator;
 	readonly addedProductModal: AddedProductModal;
+	readonly productAvailability: Locator;
+	readonly productCondition: Locator;
+	readonly productBrand: Locator;
+	readonly productCategory: Locator;
+	readonly productInformation: Locator;
 
 	constructor(page: Page) {
 		super(page);
@@ -20,6 +25,11 @@ export class ProductDetailsPage extends PageFactory {
 		this.productQuantityInput = page.locator("#quantity");
 		this.addToCartButton = page.locator("button.cart");
 		this.addedProductModal = new AddedProductModal(page);
+		this.productAvailability = page.getByText(/Availability:/i);
+		this.productCondition = page.getByText(/Condition:/i);
+		this.productBrand = page.getByText(/Brand:/i);
+		this.productCategory = page.getByText(/Category:/i);
+		this.productInformation = page.locator(".product-information");
 	}
 
 	async waitForRoot() {
