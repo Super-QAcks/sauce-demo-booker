@@ -17,5 +17,6 @@ export class CartItemCard {
 
 	async deleteItem() {
 		await this.deleteButton.click();
+		await this.rootCard.waitFor({ state: "hidden" });
 	}
 }

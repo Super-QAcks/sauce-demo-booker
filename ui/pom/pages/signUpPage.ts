@@ -92,6 +92,9 @@ export class SignUpPage extends PageFactory {
 		await this.fillField(this.city, data.city);
 		await this.fillField(this.zipcode, data.zipcode);
 		await this.fillField(this.mobileNumber, data.mobileNumber);
+	}
+
+	async submitForm() {
 		await this.submitButton.click();
 	}
 }

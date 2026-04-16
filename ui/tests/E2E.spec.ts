@@ -74,7 +74,6 @@ test.describe("E2E Tests", () => {
 
 		await test.step("Verify that product is displayed in cart page with exact quantity", async () => {
 			await cartPage.waitForCart();
-
 			await expect(cartItem.productQuantity).toHaveText(
 				VALID_PRODUCTS.default.quantity.toString()
 			);
@@ -126,6 +125,7 @@ test.describe("E2E Tests", () => {
 			await loginPage.signUp(USER_SIGNUP.name, USER_SIGNUP.email);
 			await signUpPage.waitForRoot();
 			await signUpPage.fillForm(USER_SIGNUP);
+			await signUpPage.submitForm();
 		});
 
 		await test.step("Verify 'ACCOUNT CREATED!' and click 'Continue' button", async () => {
@@ -149,11 +149,9 @@ test.describe("E2E Tests", () => {
 		});
 
 		await test.step("Verify Address Details and Review Your Order", async () => {
-			//verify address details
 			await expect(checkoutPage.deliveryAddressForm).toContainText(
 				USER_SIGNUP.zipcode
 			);
-			//review order
 			await expect(checkoutPage.reviewOderSection).toContainText(
 				VALID_PRODUCTS.default.name
 			);
@@ -184,7 +182,7 @@ test.describe("E2E Tests", () => {
 			await header.clickDeleteAccount();
 		});
 
-		await test.step("", async () => {
+		await test.step("Verify 'ACCOUNT DELETED!' and click 'Continue' button", async () => {
 			await deletedAccountPage.waitForRoot();
 			await expect(deletedAccountPage.accountDeletedTitle).toContainText(
 				"Account Deleted!"

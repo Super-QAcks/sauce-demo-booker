@@ -18,6 +18,7 @@ export class ProductCard {
 		this.viewProductButton = root.getByRole("link", {
 			name: /View Product/i,
 		});
+		this.addtoCartOverlayButton = root.locator(".productinfo .add-to-cart");
 	}
 
 	async addToCart() {
