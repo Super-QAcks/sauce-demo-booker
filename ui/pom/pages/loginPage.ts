@@ -38,11 +38,11 @@ export class LoginPage extends PageFactory {
 	}
 
 	async waitForRoot() {
-		await this.loginFormRoot.isVisible();
+		await this.loginFormRoot.waitFor({ state: "visible" });
 	}
 
 	async waitForSignUpRoot() {
-		await this.signUpFormRoot.isVisible();
+		await this.signUpFormRoot.waitFor({ state: "visible" });
 	}
 
 	async login(username: string, password: string) {

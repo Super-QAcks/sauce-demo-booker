@@ -1,7 +1,8 @@
 import { Page, Locator } from "@playwright/test";
 import { PageFactory } from "./pageFactory";
 import { ProductCard } from "../component/productCard.component";
-
+import { AddedProductModal } from "../component/addedProductModal.component";
+import { Product } from "../data/interfaces";
 export class HomePage extends PageFactory {
 	readonly page: Page;
 	readonly homeSlider: Locator;
@@ -9,6 +10,7 @@ export class HomePage extends PageFactory {
 	readonly activeSlider: Locator;
 	readonly activeSliderH2: Locator;
 	readonly productCards: Locator;
+	readonly addedProductModal: AddedProductModal;
 
 	constructor(page: Page) {
 		super(page);
@@ -22,6 +24,7 @@ export class HomePage extends PageFactory {
 		});
 		this.homeFeaturesProducts = page.locator(".features_items");
 		this.productCards = page.locator(".product-image-wrapper");
+		this.addedProductModal = new AddedProductModal(page);
 	}
 
 	async waitForRoot() {
@@ -29,6 +32,15 @@ export class HomePage extends PageFactory {
 	}
 
 	async getProductbyName(name: string) {
-		return new ProductCard(this.productCards.filter({ hasText: name }));
+		return new ProductCard(this.productCards.filter({ hasText: name }).first());
+	}
+
+	async addProductsToCart(products: Record<string, Product>) {
+		for (const product of Object.values(products)) {
+			const productCard = await this.getProductbyName(product.name);
+			await productCard.addToCartOverlay();
+			await this.addedProductModal.waitForModal();
+			await this.addedProductModal.clickContinueShopping();
+		}
 	}
 }

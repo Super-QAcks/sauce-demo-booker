@@ -13,6 +13,8 @@ export class ProductCard {
 		this.productName = root.locator(".single-products>div>p");
 		this.productPrice = root.locator(".single-products>div>h2");
 		this.addToCartButton = root.locator(".productinfo .add-to-cart");
+		this.addtoCartOverlayButton = root.locator(".product-overlay .add-to-cart");
+		this.viewProductButton = root.locator(".choose a");
 		this.viewProductButton = root.getByRole("link", {
 			name: /View Product/i,
 		});
@@ -20,7 +22,16 @@ export class ProductCard {
 	}
 
 	async addToCart() {
+		await this.addToCartButton.first().click();
+	}
+
+	async addToCartOverlay() {
+		await this.hoverOverCard();
 		await this.addtoCartOverlayButton.click();
+	}
+
+	async hoverOverCard() {
+		await this.rootCard.hover({ force: true });
 	}
 
 	async viewProduct() {
